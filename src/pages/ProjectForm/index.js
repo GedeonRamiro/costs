@@ -11,12 +11,7 @@ const ProjectForm = ({ handleSubmit, btntext, projectData }) => {
 
     const getCategories = async () => {
       try {
-        const response = await  fetch('http://localhost:5000/categories', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-        })
+        const response = await fetch('http://localhost:5000/categories')
 
         const data = await response.json()
 
@@ -26,14 +21,14 @@ const ProjectForm = ({ handleSubmit, btntext, projectData }) => {
           console.error("Algo deu errado!")
       }
     }
+
     useEffect(() => {
         getCategories()
     }, [])
 
     const submit = e => {
         e.preventDefault()
-        console.log(project)
-        //handleSubmit(project)
+        handleSubmit(project)
     }
 
     const handleChange = e => {

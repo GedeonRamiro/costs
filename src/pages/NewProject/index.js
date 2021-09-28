@@ -3,16 +3,13 @@ import ProjectForm from '../ProjectForm/'
 import { useHistory } from 'react-router'
 
 
-const NewProject = ({ btntext }) => {
-
+const NewProject = () => {
 
     const history = useHistory()
 
-    const createPost = (project) => {
-        project.cost = 0
-        project.services = []
+    const getProject = async (project) => {
 
-        fetch('http://localhost:5000/projects', {
+        await fetch('http://localhost:5000/projects', {
             method: 'POST',
             body: JSON.stringify(project),
             headers: {
@@ -20,8 +17,17 @@ const NewProject = ({ btntext }) => {
             }
         })
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data =>{
+            console.log(data)
+            history.push('/project', {message: 'Projeto criado com sucesso!'})
+        })
         .catch(err => console.log(err))
+    }
+
+    const createPost = (project) => {
+        project.cost = 0
+        project.services = []
+        getProject(project)
     }
 
 
