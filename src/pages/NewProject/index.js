@@ -7,27 +7,30 @@ const NewProject = () => {
 
     const history = useHistory()
 
-    const getProject = async (project) => {
+      const setProject = async (project) => {
 
-        await fetch('http://localhost:5000/projects', {
-            method: 'POST',
-            body: JSON.stringify(project),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(response => response.json())
-        .then(data =>{
-            console.log(data)
+        try {
+            await fetch('http://localhost:5000/projects', {
+                method: 'POST',
+                body: JSON.stringify(project),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+         
             history.push('/project', {message: 'Projeto criado com sucesso!'})
-        })
-        .catch(err => console.log(err))
+
+        } catch (error) {
+                console.log(error)
+                console.log('Algo deu errado no cadastro!')
+        }
+    
     }
 
     const createPost = (project) => {
         project.cost = 0
         project.services = []
-        getProject(project)
+        setProject(project)
     }
 
 
