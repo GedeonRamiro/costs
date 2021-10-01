@@ -32,6 +32,17 @@
       "cost": 0,
       "services": [],
       "id": 3
+    },
+    {
+      "category": {
+        "id": "3",
+        "name": "Planejamento"
+      },
+      "name": "Venda Rede Sociais",
+      "budget": "3000",
+      "cost": 0,
+      "services": [],
+      "id": 4
     }
   ],
   "categories": [
