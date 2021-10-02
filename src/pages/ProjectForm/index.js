@@ -9,8 +9,6 @@ const ProjectForm = ({ handleSubmit, btntext, projectData }) => {
     const [categories, setCategories] = useState([])
     const [project, setProject] = useState(projectData || {})
 
-    console.log(categories)
-
     const getCategories = async () => {
       try {
         const response = await fetch('http://localhost:5000/categories')
@@ -48,6 +46,7 @@ const ProjectForm = ({ handleSubmit, btntext, projectData }) => {
 
 
     return (
+        
         <form onSubmit={submit} className={styles.form}>
             <Input  
                 type="text"

@@ -43,6 +43,28 @@
       "cost": 0,
       "services": [],
       "id": 4
+    },
+    {
+      "name": "teste",
+      "budget": "121312",
+      "category": {
+        "id": "3",
+        "name": "Planejamento"
+      },
+      "cost": 0,
+      "services": [],
+      "id": 5
+    },
+    {
+      "name": "ok",
+      "budget": "1212342",
+      "category": {
+        "id": "2",
+        "name": "Design"
+      },
+      "cost": 0,
+      "services": [],
+      "id": 6
     }
   ],
   "categories": [
