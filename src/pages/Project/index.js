@@ -5,10 +5,13 @@ import Container from '../../components/Container/'
 import LinkButton from '../../components/LinkButton/'
 import style from './style.module.css'
 import CardProject from '../../components/CardProject/'
+import Loading from '../../layout/Loading/'
+
 
 const Project = () => {
 
     const [projects, setProjects] = useState([])
+    const [removeLoading, setRemoveLoading] = useState(false)
 
     const location = useLocation()
     let message = ''
@@ -22,6 +25,7 @@ const Project = () => {
             const response = await fetch('http://localhost:5000/projects')
             const data = await response.json()
             setProjects(data)
+            setRemoveLoading(true)
         } catch (error) {
             console.log(error)
         }
@@ -35,6 +39,7 @@ const Project = () => {
         <div className={style.project_container}>
             <div className={style.title_container}>
                 <h1>Meu Projetos</h1>
+              
                 <LinkButton to="newproject" text="Criar Projeto"  />
             </div>    
                 {message && (
@@ -52,6 +57,11 @@ const Project = () => {
                             />
                         ))
                     }
+
+                    {!removeLoading && <Loading />}
+                    {removeLoading && projects.length === 0 && (
+                        <p>Não há projetos cadastrados!</p>
+                    )}
                 </Container>
         </div>
     )
