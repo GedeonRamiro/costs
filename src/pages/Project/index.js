@@ -12,6 +12,8 @@ const Project = () => {
 
     const [projects, setProjects] = useState([])
     const [removeLoading, setRemoveLoading] = useState(false)
+    const [messageDelete, setMessageDelete] = useState('')
+  
 
     const location = useLocation()
     let message = ''
@@ -29,6 +31,23 @@ const Project = () => {
         } catch (error) {
             console.log(error)
         }
+    }
+    
+     const deleteProject = async (id) => {
+        try {
+            await fetch(`http://localhost:5000/projects/${id}`, {
+                method: 'DELETE',
+                body: JSON.stringify(projects),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })                    
+            setProjects(projects.filter(project => project.id !== id))
+            setMessageDelete('Projeto removido com sucesso!')
+        } catch (error) {
+            console.log(error)
+            console.log('Deletar projeto deu errado!')    
+        }
     } 
 
     useEffect(() => {
@@ -45,6 +64,9 @@ const Project = () => {
                 {message && (
                      <Message msg={message} type="sucess"/>
                 )}
+                 {messageDelete && (
+                     <Message msg={messageDelete} type="sucess"/>
+                )}
                 <Container customClass="start">
                     {projects.length > 0 && 
                         projects.map(project => (
@@ -54,6 +76,7 @@ const Project = () => {
                                name={project.name}
                                budget={project.budget}
                                category={project.category} 
+                               handleRemove={deleteProject} 
                             />
                         ))
                     }

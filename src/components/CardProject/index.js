@@ -4,7 +4,13 @@ import { FiDelete } from 'react-icons/fi'
 import style from './style.module.css'
 
 
+
 const CardProject = ({ id, name, budget, category, handleRemove  }) => {
+
+    const remove = e => {
+        e.preventDefault()
+        handleRemove(id)
+    }
 
     return(
         <div className={style.project_card}>
@@ -19,7 +25,7 @@ const CardProject = ({ id, name, budget, category, handleRemove  }) => {
                 <Link to='/'>
                     <BiEdit size={20} /> Editar
                 </Link>
-                <button>
+                <button onClick={remove}>
                     <FiDelete size={20} /> Excluir
                 </button>
             </div>
