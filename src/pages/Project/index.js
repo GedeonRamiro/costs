@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
-import Message from '../../layout/Message/'
+import Message from '../../layout/Message'
 import { useLocation } from 'react-router'
-import Container from '../../components/Container/'
-import LinkButton from '../../components/LinkButton/'
+import Container from '../../components/Container'
+import LinkButton from '../../components/LinkButton'
 import style from './style.module.css'
-import CardProject from '../../components/CardProject/'
-import Loading from '../../layout/Loading/'
+import CardProject from '../../components/CardProject'
+import Loading from '../../layout/Loading'
 
 
 const Project = () => {

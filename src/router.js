@@ -8,6 +8,7 @@ import NewProject from './pages/NewProject/'
 import Company from './pages/Company/'
 import NavBar from './components/NavBar/'
 import Footer from './components/Footer/'
+import EditProject from './pages/EditProject/'
 
 const Routes = () => {
   return (
@@ -26,6 +27,9 @@ const Routes = () => {
           </Route>
           <Route path='/project'>
               <Project />
+          </Route>
+          <Route path='/editproject/:id'>
+              <EditProject />
           </Route>
           <Route path='/newproject'>
               <NewProject />

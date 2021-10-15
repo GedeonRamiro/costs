@@ -12,11 +12,11 @@
       "id": 1
     },
     {
-      "name": "derdfghjgdjghf",
-      "budget": "878998",
+      "name": "Rede",
+      "budget": "3000",
       "category": {
-        "id": "1",
-        "name": "Desenvolvimento"
+        "id": "4",
+        "name": "Infra"
       },
       "cost": 0,
       "services": [],
