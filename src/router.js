@@ -8,7 +8,7 @@ import NewProject from './pages/NewProject/'
 import Company from './pages/Company/'
 import NavBar from './components/NavBar/'
 import Footer from './components/Footer/'
-import EditProject from './pages/EditProject/'
+import Project from './pages/Project/'
 
 const Routes = () => {
   return (
@@ -28,8 +28,8 @@ const Routes = () => {
           <Route path='/projects'>
               <Projects />
           </Route>
-          <Route path='/editproject/:id'>
-              <EditProject />
+          <Route path='/project/:id'>
+              <Project />
           </Route>
           <Route path='/newproject'>
               <NewProject />

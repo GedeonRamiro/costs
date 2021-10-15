@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom'
 import { useState, useEffect } from "react"
 
 
-const EditProject = () => {
+const Project = () => {
     
     const { id } = useParams()
     const [project, setProject] = useState([])
@@ -28,4 +28,4 @@ const EditProject = () => {
     )
 }
 
-export default EditProject
+export default Project

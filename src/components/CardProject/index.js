@@ -22,7 +22,7 @@ const CardProject = ({ id, name, budget, category, handleRemove  }) => {
                 <span className={`${style[category.name.toLowerCase()]}`}></span> {category.name}
             </p>
             <div className={style.project_card_actions}>
-                <Link to={`/editproject/${id}`}>
+                <Link to={`/project/${id}`}>
                     <BiEdit size={20} /> Editar
                 </Link>
                 <button onClick={remove}>
