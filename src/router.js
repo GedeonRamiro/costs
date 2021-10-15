@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Container from './components/Container/'
 import Home from './pages/Home/'
 import Contact from './pages/Contact/'
-import Project from './pages/Project/'
+import Projects from './pages/Projects/'
 import NewProject from './pages/NewProject/'
 import Company from './pages/Company/'
 import NavBar from './components/NavBar/'
@@ -25,8 +25,8 @@ const Routes = () => {
           <Route path='/company'>
               <Company />
           </Route>
-          <Route path='/project'>
-              <Project />
+          <Route path='/projects'>
+              <Projects />
           </Route>
           <Route path='/editproject/:id'>
               <EditProject />

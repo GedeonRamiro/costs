@@ -8,7 +8,7 @@ import CardProject from '../../components/CardProject'
 import Loading from '../../layout/Loading'
 
 
-const Project = () => {
+const Projects = () => {
 
     const [projects, setProjects] = useState([])
     const [removeLoading, setRemoveLoading] = useState(false)
@@ -90,4 +90,4 @@ const Project = () => {
     )
 }
 
-export default Project
+export default Projects
