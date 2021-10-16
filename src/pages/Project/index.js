@@ -4,6 +4,8 @@ import Loading from '../../layout/Loading/'
 import Container from '../../components/Container/'
 import styles from './style.module.css'
 import ProjectForm from '../ProjectForm/'
+import Message from '../../layout/Message/'
+
 
 
 const Project = () => {
@@ -35,11 +37,24 @@ const Project = () => {
             const data = await response.json()
             setProject(data)
             setShowProjectForm(!showProjectForm)
+            //editPost(data)
 
         } catch (error) {
             console.log({error})
         }
         
+    }
+
+    const editPost = async (project) =>{
+
+        if(project.budget < project.cost){
+         //message
+            return false
+        }
+
+      //message
+        return true
+       
     }
 
 

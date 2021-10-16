@@ -2,7 +2,7 @@
   "projects": [
     {
       "name": "Projeto atualizado",
-      "budget": "2000",
+      "budget": "1234",
       "category": {
         "id": "2",
         "name": "Design"
@@ -12,7 +12,7 @@
       "id": 1
     },
     {
-      "name": "Rede TV",
+      "name": "Rede TVyy",
       "budget": "45002",
       "category": {
         "id": "4",
@@ -21,6 +21,17 @@
       "cost": 0,
       "services": [],
       "id": 2
+    },
+    {
+      "name": "ok",
+      "budget": "234543",
+      "category": {
+        "id": "2",
+        "name": "Design"
+      },
+      "cost": 0,
+      "services": [],
+      "id": 3
     }
   ],
   "categories": [

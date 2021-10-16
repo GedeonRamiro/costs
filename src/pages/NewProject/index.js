@@ -18,7 +18,7 @@ const NewProject = () => {
                 }
             })
          
-            history.push('/project', {message: 'Projeto criado com sucesso!'})
+            history.push('/projects', {message: 'Projeto criado com sucesso!'})
 
         } catch (error) {
                 console.log(error)
