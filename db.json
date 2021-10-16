@@ -1,19 +1,19 @@
 {
   "projects": [
     {
-      "name": "edrgsdftrhr",
-      "budget": "3245645667",
+      "name": "Projeto atualizado",
+      "budget": "2000",
       "category": {
-        "id": "3",
-        "name": "Planejamento"
+        "id": "2",
+        "name": "Design"
       },
       "cost": 0,
       "services": [],
       "id": 1
     },
     {
-      "name": "Rede",
-      "budget": "3000",
+      "name": "Rede TV",
+      "budget": "45002",
       "category": {
         "id": "4",
         "name": "Infra"

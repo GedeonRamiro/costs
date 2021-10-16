@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import Loading from '../../layout/Loading/'
 import Container from '../../components/Container/'
 import styles from './style.module.css'
+import ProjectForm from '../ProjectForm/'
 
 
 const Project = () => {
@@ -19,7 +20,28 @@ const Project = () => {
         } catch (error) {
             console.log({error})
         }
-    } 
+    }
+    
+    const editProject = async (project) => {
+        try {
+            const response = await fetch(`http://localhost:5000/projects/${id}`, {
+                method: 'PATCH',
+                body: JSON.stringify(project),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            
+            const data = await response.json()
+            setProject(data)
+            setShowProjectForm(!showProjectForm)
+
+        } catch (error) {
+            console.log({error})
+        }
+        
+    }
+
 
     function toggleProjectForm (){
         setShowProjectForm(!showProjectForm)
@@ -53,7 +75,13 @@ const Project = () => {
                             </div>
                         ) : (
                             <div  className={styles.project_info}>
-                                project form
+                              <ProjectForm
+                                btntext='concluir edição'
+                                handleSubmit={editProject}
+                                projectData={project}
+                              >
+
+                              </ProjectForm>
                             </div>
                         )}
                     </div>
