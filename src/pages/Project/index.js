@@ -31,6 +31,7 @@ const Project = () => {
     }
     
     const editProject = async (project) => {
+        setMessage('')
         try {
             const response = await fetch(`http://localhost:5000/projects/${id}`, {
                 method: 'PATCH',
@@ -41,28 +42,22 @@ const Project = () => {
             })
             
             const data = await response.json()
-            setProject(data)
-            setShowProjectForm(!showProjectForm)
-            editMessage(data)
+            
+            if(project.budget < project.cost){
+                setMessage('O orçamento não poder ser maios que o orçamento do projeto!')
+                setType('erro')
+                return 
+            }
+            
+                setProject(data)
+                setShowProjectForm(!showProjectForm)
+                setMessage('Projeto atualizado!')
+                setType('sucess')
             
         } catch (error) {
             console.log({error})
         }
         
-    }
-
-    const editMessage = (project) => {
-
-        if(project.budget < project.cost){
-            setMessage('O orçamento não poder ser maios que o orçamento do projeto!')
-            setType('error')
-            return false
-        }
-
-        setMessage('Projeto atualizado!')
-        setType('sucess')
-        return true
-       
     }
 
 
