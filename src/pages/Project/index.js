@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { useParams, useLocation } from 'react-router-dom'
 import { useState, useEffect } from "react"
 import Loading from '../../layout/Loading/'
 import Container from '../../components/Container/'
@@ -8,17 +8,23 @@ import Message from '../../layout/Message/'
 
 
 
+
 const Project = () => {
     
     const { id } = useParams()
+
     const [project, setProject] = useState([])
     const [showProjectForm, setShowProjectForm] = useState(true)
+    const [message, setMessage] = useState()
+    const [type, setType] = useState()
+
 
     const geProject = async () => {
         try {
             const response = await fetch(`http://localhost:5000/projects/${id}`)
             const data = await response.json()
             setProject(data)
+            setMessage()
         } catch (error) {
             console.log({error})
         }
@@ -37,22 +43,24 @@ const Project = () => {
             const data = await response.json()
             setProject(data)
             setShowProjectForm(!showProjectForm)
-            //editPost(data)
-
+            editMessage(data)
+            
         } catch (error) {
             console.log({error})
         }
         
     }
 
-    const editPost = async (project) =>{
+    const editMessage = (project) => {
 
         if(project.budget < project.cost){
-         //message
+            setMessage('O orçamento não poder ser maios que o orçamento do projeto!')
+            setType('error')
             return false
         }
 
-      //message
+        setMessage('Projeto atualizado!')
+        setType('sucess')
         return true
        
     }
@@ -61,16 +69,18 @@ const Project = () => {
     function toggleProjectForm (){
         setShowProjectForm(!showProjectForm)
     }
-    
+
     useEffect(() => {
         geProject()
     }, [id])
+    
 
     return(
     <>
         {project.name ? (
             <div className={styles.project_details}>
                 <Container customClass='column'>
+                        {message && <Message type={type} msg={message} />}
                     <div className={styles.details_container}>
                       <h1>Projeto: {project.name}</h1>      
                        <button className={styles.btn} onClick={toggleProjectForm} >

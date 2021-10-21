@@ -2,8 +2,12 @@ import style from './style.module.css'
 import { useState, useEffect } from 'react'
 
 const Message = ({ type, msg }) => {
+    
+    
+    console.log({type, msg})
 
     const [visible, setVisible] = useState(false)
+    console.log('Message: ', visible)
 
     function msgVisible(){
         if(!msg){
