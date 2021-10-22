@@ -2,7 +2,7 @@
   "projects": [
     {
       "name": "Projeto atualizado",
-      "budget": "-123444",
+      "budget": "123444",
       "category": {
         "id": "3",
         "name": "Planejamento"
@@ -13,7 +13,7 @@
     },
     {
       "name": "Deu Certo! Amém",
-      "budget": "-1200",
+      "budget": "1200",
       "category": {
         "id": "1",
         "name": "Desenvolvimento"

@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
 
 import Container from './components/Container/'
 import Home from './pages/Home/'
@@ -34,6 +34,7 @@ const Routes = () => {
           <Route path='/newproject'>
               <NewProject />
           </Route>
+          <Redirect path="/" />
         </Container>
      </Switch>
     <Footer />
