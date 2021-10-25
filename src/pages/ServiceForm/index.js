@@ -1,15 +1,23 @@
 import styles from '../ProjectForm/style.module.css';
 import Input from '../../components/Form/Input/'
 import SubmitButton from '../../components/Form/SubmitButton/'
+import { useState } from "react"
 
-const ServiceForm = ({ handleChange, btnText, projetData }) => {
+const ServiceForm = ({ btnText, projectData, handleSubmit }) => {
 
-    function submit() {
+  
+  const [service, setService] = useState({})
+  
+  console.log(projectData)
 
+    function submit(e) {
+      e.preventDefault()
+      projectData.services.push(service)
+      handleSubmit(projectData)
     }
 
     function handleChange(e) {
-
+      setService({...service, [e.target.name]: e.target.value })
     }
 
 

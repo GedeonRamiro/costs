@@ -2,13 +2,26 @@
   "projects": [
     {
       "name": "Projeto atualizado",
-      "budget": "123444",
+      "budget": "3000",
       "category": {
         "id": "3",
         "name": "Planejamento"
       },
       "cost": 0,
-      "services": [],
+      "services": [
+        {
+          "name": "Primeiro serviço",
+          "cost": "500",
+          "description": "Faz isso",
+          "id": "f9562435-9b6d-4358-8504-d128ef5ae123"
+        },
+        {
+          "name": "Segundo serviço",
+          "cost": "1500",
+          "description": "Faz isso 2",
+          "id": "cb07651b-eaea-4761-81a4-eee9588888f2"
+        }
+      ],
       "id": 1
     },
     {

@@ -6,6 +6,7 @@ import Message from '../../layout/Message/'
 import ProjectForm from '../ProjectForm/'
 import ServiceForm from '../ServiceForm'
 import styles from './style.module.css'
+import { parse, v4 as uuidv4 } from 'uuid'
 
 
 
@@ -19,7 +20,6 @@ const Project = () => {
     const [showServiceForm, setShowServiceForm] = useState(false)
     const [message, setMessage] = useState()
     const [type, setType] = useState()
-
 
     const geProject = async () => {
         try {
@@ -62,8 +62,39 @@ const Project = () => {
 
     }
 
-    function createService(){
+    const createService = async () => {
+
+        setMessage('')
         
+        const lastService = project.services[project.services.length - 1]
+        lastService.id = uuidv4()
+        
+        const lastServiceCost =  lastService.cost
+
+        const newCost = parseFloat(project.cost) + parseFloat(lastServiceCost)
+
+        if(newCost > parseFloat(project.budget)){
+            setMessage('Orçamento ultrapassado, verifique o valor do serviço')
+            setType('erro')
+            project.services.pop()
+            return false
+        }
+
+        try {
+            await fetch(`http://localhost:5000/projects/${project.id}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application-json'
+                },
+                body: JSON.stringify(project)
+            })   
+
+            console.log(project)
+
+
+        } catch (error) {
+            console.log({ error })   
+        }
     }
 
 
