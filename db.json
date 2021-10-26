@@ -20,6 +20,12 @@
           "cost": "1500",
           "description": "Faz isso 2",
           "id": "cb07651b-eaea-4761-81a4-eee9588888f2"
+        },
+        {
+          "name": "Vamos ver",
+          "cost": "100",
+          "description": "Será?",
+          "id": "8ac00c50-0a5b-437d-a601-6996b1928ef4"
         }
       ],
       "id": 1
@@ -32,7 +38,14 @@
         "name": "Desenvolvimento"
       },
       "cost": 0,
-      "services": [],
+      "services": [
+        {
+          "name": "ok ok",
+          "cost": "123",
+          "description": "jk",
+          "id": "0562f0ee-681d-4973-a1f0-deb23afb763d"
+        }
+      ],
       "id": 2
     }
   ],
