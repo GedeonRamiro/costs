@@ -72,9 +72,10 @@ const Project = () => {
         const lastService = project.services[project.services.length - 1]
         lastService.id = uuidv4()
         
-        const lastServiceCost =  lastService.cost
 
-        const newCost = parseFloat(project.cost) + parseFloat(lastServiceCost)
+        const newCost = services.map(service => Number(service.cost))
+        .reduce((acc, value) => acc + value, 0)
+       
 
         if(newCost > parseFloat(project.budget)){
             setMessage('Orçamento ultrapassado, verifique o valor do serviço')
@@ -82,6 +83,8 @@ const Project = () => {
             project.services.pop()
             return false
         }
+
+        project.cost = newCost
 
         try {
             await fetch(`http://localhost:5000/projects/${project.id}`, {
@@ -110,7 +113,32 @@ const Project = () => {
         setShowServiceForm(!showServiceForm)
     }
 
-    function removeService (){
+    function removeService (id, cost){
+        setMessage('')
+        const serviceUpdate = project.services.filter(service => service.id !== id)
+
+        const projectUpdate = project
+
+        projectUpdate.services = serviceUpdate
+        projectUpdate.cost = parseFloat(projectUpdate.cost) - parseFloat(cost)
+
+        try {
+            fetch(`http://localhost:5000/projects/${projectUpdate.id}`, {
+                method: 'PATCH',
+                body: JSON.stringify(projectUpdate),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+
+            setProject(projectUpdate)
+            setServices(serviceUpdate)
+            setMessage('Serviço removido com sucesso!')
+            setType('sucess')
+            
+        } catch (error) {
+            console.log({ error })
+        }
 
     }
 
@@ -172,8 +200,8 @@ const Project = () => {
                             </div>
                         </div>
                         <h2>Serviços</h2>
-                        {services && services.map(service => (
                         <Container customClass='start'>
+                        {services && services.map(service => (
                           <ServiceCard 
                             id={service.id}
                             name={service.name}
@@ -182,8 +210,8 @@ const Project = () => {
                             key={service.id}
                             handleRemove={removeService}
                            />
-                        </Container>
                         ))}
+                        </Container>
                     </Container>
                 </div>
             ) : (

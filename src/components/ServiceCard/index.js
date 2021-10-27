@@ -1,4 +1,14 @@
-const ServiceCard = ({ id, name, cost, description }) => {
+import styles from '../../components/CardProject/style.module.css'
+import { FiDelete } from 'react-icons/fi'
+
+const ServiceCard = ({ id, name, cost, description, handleRemove }) => {
+
+    const remove = (e) => {
+        e.preventDefault()
+        handleRemove(id, cost)
+        
+    }
+
     return(
         <div className={styles.project_card}>
             <h4>{name}</h4>
@@ -7,7 +17,8 @@ const ServiceCard = ({ id, name, cost, description }) => {
             </p>
             <p>{description}</p>
             <div className={styles.project_card_actions}>
-                <button>
+                <button onClick={remove}>
+                    <FiDelete />
                     Excluir
                 </button>
             </div>

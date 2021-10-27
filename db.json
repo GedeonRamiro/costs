@@ -2,30 +2,24 @@
   "projects": [
     {
       "name": "Projeto atualizado",
-      "budget": "3000",
+      "budget": "1600",
       "category": {
         "id": "3",
         "name": "Planejamento"
       },
-      "cost": 0,
+      "cost": 223,
       "services": [
         {
-          "name": "Primeiro serviço",
-          "cost": "500",
-          "description": "Faz isso",
-          "id": "f9562435-9b6d-4358-8504-d128ef5ae123"
-        },
-        {
-          "name": "Segundo serviço",
-          "cost": "1500",
-          "description": "Faz isso 2",
-          "id": "cb07651b-eaea-4761-81a4-eee9588888f2"
-        },
-        {
-          "name": "Vamos ver",
+          "name": "Leones Team",
           "cost": "100",
-          "description": "Será?",
-          "id": "8ac00c50-0a5b-437d-a601-6996b1928ef4"
+          "description": "mais um blz!",
+          "id": "151c1a9a-d572-4316-b890-21e1e2ce9026"
+        },
+        {
+          "name": "Gedeon Ramiro Bastos Costa",
+          "cost": "123",
+          "description": "mais um blz!",
+          "id": "23810fdb-cc2e-4caa-8d50-92e073890842"
         }
       ],
       "id": 1
@@ -37,13 +31,43 @@
         "id": "1",
         "name": "Desenvolvimento"
       },
-      "cost": 0,
+      "cost": 605,
       "services": [
         {
-          "name": "ok ok",
+          "name": "Mais um",
+          "cost": "300",
+          "description": "mais um blz!",
+          "id": "715b62ce-3d50-4312-a8f7-435dc63eaa75"
+        },
+        {
+          "name": "Leones Team",
+          "cost": "56",
+          "description": "fazer um app da hora",
+          "id": "6b6b0b47-a865-465f-b66d-a4bcfaa20ecb"
+        },
+        {
+          "name": "Gedeon",
+          "cost": "21",
+          "description": "mais um blz!",
+          "id": "f3cc4869-546a-427f-9efe-d35507bdaaab"
+        },
+        {
+          "name": "Gedeon Ramiro",
+          "cost": "6",
+          "description": "fazer um app da hora",
+          "id": "1ca07cd9-630d-4df5-84a8-0bb52a22e524"
+        },
+        {
+          "name": "Leones Team",
+          "cost": "99",
+          "description": "mais um blz!",
+          "id": "4b2e7b42-4c04-4257-a6da-5f4a1282fa85"
+        },
+        {
+          "name": "Gedeon Ramiro",
           "cost": "123",
-          "description": "jk",
-          "id": "0562f0ee-681d-4973-a1f0-deb23afb763d"
+          "description": "fazer um app da hora",
+          "id": "f153c3be-a349-431d-b1b9-fc39675f86ee"
         }
       ],
       "id": 2
