@@ -3,12 +3,15 @@ import Input from '../../components/Form/Input/'
 import Select from '../../components/Form/Select/'
 import SubmitButton from '../../components/Form/SubmitButton/'
 import { useState, useEffect } from 'react';
+import validadeCreateProject from '../../utils/validadeCreateProject'
 
 const ProjectForm = ({ handleSubmit, btntext, projectData }) => {
     
     const [categories, setCategories] = useState([])
     const [project, setProject] = useState(projectData || {})
-
+    console.log(project)
+    console.log(validadeCreateProject)
+    
     const getCategories = async () => {
       try {
         const response = await fetch('http://localhost:5000/categories')

@@ -2,7 +2,6 @@ import styles from './style.module.css'
 import ProjectForm from '../ProjectForm/'
 import { useHistory } from 'react-router'
 
-
 const NewProject = () => {
 
     const history = useHistory()

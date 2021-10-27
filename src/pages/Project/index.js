@@ -10,8 +10,6 @@ import styles from './style.module.css'
 import { parse, v4 as uuidv4 } from 'uuid'
 
 
-
-
 const Project = () => {
 
     const { id } = useParams()
@@ -22,6 +20,8 @@ const Project = () => {
     const [showServiceForm, setShowServiceForm] = useState(false)
     const [message, setMessage] = useState()
     const [type, setType] = useState()
+
+    console.log(project)
 
     const geProject = async () => {
         try {
@@ -51,7 +51,7 @@ const Project = () => {
             if (project.budget < project.cost) {
                 setMessage('O orçamento não poder ser maios que o orçamento do projeto!')
                 setType('erro')
-                return
+                return false
             }
 
             setProject(data)
@@ -85,7 +85,7 @@ const Project = () => {
         }
 
         project.cost = newCost
-
+     
         try {
             await fetch(`http://localhost:5000/projects/${project.id}`, {
                 method: 'PATCH',
@@ -105,25 +105,18 @@ const Project = () => {
     }
 
 
-    function toggleProjectForm() {
-        setShowProjectForm(!showProjectForm)
-    }
-
-    function toggleServiceForm() {
-        setShowServiceForm(!showServiceForm)
-    }
-
-    function removeService (id, cost){
+    
+    const removeService = async (id, cost) => {
         setMessage('')
         const serviceUpdate = project.services.filter(service => service.id !== id)
-
+        
         const projectUpdate = project
-
+        
         projectUpdate.services = serviceUpdate
         projectUpdate.cost = parseFloat(projectUpdate.cost) - parseFloat(cost)
-
+        
         try {
-            fetch(`http://localhost:5000/projects/${projectUpdate.id}`, {
+           await fetch(`http://localhost:5000/projects/${projectUpdate.id}`, {
                 method: 'PATCH',
                 body: JSON.stringify(projectUpdate),
                 headers: {
@@ -139,12 +132,21 @@ const Project = () => {
         } catch (error) {
             console.log({ error })
         }
+        
+    }
 
+    
+    function toggleProjectForm() {
+        setShowProjectForm(!showProjectForm)
+    }
+
+    function toggleServiceForm() {
+        setShowServiceForm(!showServiceForm)
     }
 
     useEffect(() => {
         geProject()
-    }, [id])
+    }, [])
 
 
     return (
@@ -154,7 +156,7 @@ const Project = () => {
                     <Container customClass='column'>
                         {message && <Message type={type} msg={message} />}
                         <div className={styles.details_container}>
-                            <h1>Projeto: {project.name}</h1>
+                            {showProjectForm && <h1>Projeto: {project.name}</h1>}
                             <button className={styles.btn} onClick={toggleProjectForm} >
                                 {showProjectForm ? 'Editar projeto' : 'Fechar'}
                             </button>
@@ -201,7 +203,7 @@ const Project = () => {
                         </div>
                         <h2>Serviços</h2>
                         <Container customClass='start'>
-                        {services && services.map(service => (
+                        {services.length ? services.map(service => (
                           <ServiceCard 
                             id={service.id}
                             name={service.name}
@@ -210,7 +212,9 @@ const Project = () => {
                             key={service.id}
                             handleRemove={removeService}
                            />
-                        ))}
+                        )):
+                            <p>Não há serviço cadastrodos!</p>
+                        }
                         </Container>
                     </Container>
                 </div>
