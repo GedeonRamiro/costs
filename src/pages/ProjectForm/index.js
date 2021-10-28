@@ -4,13 +4,16 @@ import Select from '../../components/Form/Select/'
 import SubmitButton from '../../components/Form/SubmitButton/'
 import { useState, useEffect } from 'react';
 import validadeCreateProject from '../../utils/validadeCreateProject'
+import Message from '../../layout/Message/'
 
 const ProjectForm = ({ handleSubmit, btntext, projectData }) => {
     
     const [categories, setCategories] = useState([])
     const [project, setProject] = useState(projectData || {})
-    console.log(project)
-    console.log(validadeCreateProject)
+    const [message, setMessage] = useState()
+    const [type, setType] = useState()
+
+    console.log(message)
     
     const getCategories = async () => {
       try {
@@ -25,31 +28,41 @@ const ProjectForm = ({ handleSubmit, btntext, projectData }) => {
       }
     }
 
-    useEffect(() => {
-        getCategories()
-    }, [])
-
+    
     const submit = e => {
         e.preventDefault()
+        
+        const validation = validadeCreateProject(project.name, project.budget)         
+        
+        if(typeof validation === 'string'){
+            setMessage(validation)
+            setType('erro')
+            return false
+        }
+        
         handleSubmit(project)
     }
-
+    
     const handleChange = e => {
         setProject({  ...project, [e.target.name]: e.target.value })
     }
-
+    
     const handleCategory= e => {
         setProject({  ...project, 
             category:{
                 id: e.target.value,
                 name: e.target.options[e.target.selectedIndex].text
             },
-     })
+        })
     }
-
+    
+    useEffect(() => {
+        getCategories()
+    }, [])
 
     return (
-        
+    <>   
+        {message && <Message type={type} msg={message} />} 
         <form onSubmit={submit} className={styles.form}>
             <Input  
                 type="text"
@@ -76,6 +89,7 @@ const ProjectForm = ({ handleSubmit, btntext, projectData }) => {
             />
             <SubmitButton text={btntext} />
         </form>
+    </>
     )
 }
 

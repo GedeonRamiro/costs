@@ -21,7 +21,7 @@ const Project = () => {
     const [message, setMessage] = useState()
     const [type, setType] = useState()
 
-    console.log(project)
+    console.log(message)
 
     const geProject = async () => {
         try {
@@ -29,7 +29,6 @@ const Project = () => {
             const data = await response.json()
             setProject(data)
             setServices(data.services)
-            setMessage()
         } catch (error) {
             console.log({ error })
         }

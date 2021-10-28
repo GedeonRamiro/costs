@@ -1,13 +1,13 @@
 {
   "projects": [
     {
-      "name": "Projeto atualizado J",
+      "name": "Projeto atualizado",
       "budget": "5996",
       "category": {
         "id": "2",
         "name": "Design"
       },
-      "cost": 23,
+      "cost": 146,
       "services": [
         {
           "name": "dfbgdf",
@@ -20,6 +20,12 @@
           "cost": "123",
           "description": "GNCKJ",
           "id": "97a5fc5b-def1-4c70-be3f-ffecee95d254"
+        },
+        {
+          "name": "sdf",
+          "cost": "12",
+          "description": "errgd",
+          "id": "ea559ddb-340b-4796-ab38-c6a4c6375f92"
         }
       ],
       "id": 1
@@ -65,6 +71,48 @@
         }
       ],
       "id": 3
+    },
+    {
+      "category": {
+        "id": "1",
+        "name": "Desenvolvimento"
+      },
+      "name": "12312",
+      "budget": "12321",
+      "cost": 0,
+      "services": [],
+      "id": 4
+    },
+    {
+      "category": {
+        "id": "2",
+        "name": "Design"
+      },
+      "name": "etrtghyy6",
+      "budget": "3565",
+      "cost": 0,
+      "services": [],
+      "id": 5
+    },
+    {
+      "category": {
+        "id": "1",
+        "name": "Desenvolvimento"
+      },
+      "cost": 0,
+      "services": [],
+      "id": 6
+    },
+    {
+      "category": {
+        "id": "3",
+        "name": "Planejamento"
+      },
+      "name": "ert",
+      "budget": "3242342",
+      "cost": 0,
+      "services": [],
+      "id": 7
     }
   ],
   "categories": [
