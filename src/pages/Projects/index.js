@@ -46,7 +46,6 @@ const Projects = () => {
             setMessageDelete('Projeto removido com sucesso!')
         } catch (error) {
             console.log(error)
-            console.log('Deletar projeto deu errado!')    
         }
     } 
 

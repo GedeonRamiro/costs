@@ -5,7 +5,6 @@ import { useState } from "react"
 
 const ServiceForm = ({ btnText, projectData, handleSubmit }) => {
 
-  
   const [service, setService] = useState({})
 
 

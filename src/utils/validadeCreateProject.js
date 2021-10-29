@@ -1,6 +1,10 @@
 
-const validadeCreateProject = (name, budget ) => {
+
+const validadeCreateProject = (name, budget, category ) => {
+
     if(
+        category?.name === undefined ||
+        category?.name === 'Selecione um opção' ||
         name === '' || 
         budget === '' || 
         name === undefined || 

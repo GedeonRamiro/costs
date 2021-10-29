@@ -21,7 +21,6 @@ const Project = () => {
     const [message, setMessage] = useState()
     const [type, setType] = useState()
 
-    console.log(message)
 
     const geProject = async () => {
         try {
